@@ -2,7 +2,8 @@
 import React from 'react';
 import Header from './Header';
 import AboutUs from './AboutUs';
-import '../styles/App.css';
+import Footer from './Footer.js'
+import '../styles/app.css';
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <div className='container-fluid'>
         <Header />
         <AboutUs />
+        <Footer />
       </div>
     </React.Fragment>
   );
