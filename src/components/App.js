@@ -3,6 +3,7 @@ import React from 'react';
 import Header from './Header';
 import AboutUs from './AboutUs';
 import Footer from './Footer.js'
+import ProductList from './ProductList';
 import '../styles/app.css';
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
         <Header />
         <AboutUs />
         <Footer />
+        <ProductList />
       </div>
     </React.Fragment>
   );
