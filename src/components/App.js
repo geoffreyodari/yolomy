@@ -1,13 +1,14 @@
 
 import React from 'react';
+import Header from './Header';
 import '../App.css';
 
 function App() {
   return (
     <React.Fragment>
-      <h1>Yolomy Products</h1>
-      <p>Trousers</p>
-      <p>shirts</p>
+      <div>
+        <Header />
+      </div>
     </React.Fragment>
   );
 }
