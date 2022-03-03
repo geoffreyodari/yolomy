@@ -40,13 +40,13 @@ function ProductList() {
    return (
        <React.Fragment>
            <h1>Yolomy Products</h1>
-           <Product
-           name = "Trousers"
-           price = '1500' />
-
-           <Product
-           name = "Polo Shirt"
-           price = "1500"/>
+           {actualProductList.map((product)=>
+               (<Product
+               name = {product.name}
+               price = {product.price}
+               key = {product.id}
+               />)
+           )}
        </React.Fragment>
    )
 }
