@@ -12,8 +12,8 @@ function App() {
       <div className='container-fluid'>
         <Header />
         <AboutUs />
-        <Footer />
         <ProductList />
+        <Footer />
       </div>
     </React.Fragment>
   );
