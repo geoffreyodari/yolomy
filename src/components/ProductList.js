@@ -1,10 +1,52 @@
 import React from 'react';
-import Product from './Product';
+import Product from './Product'
+
+// ActualProductList
+const actualProductList = [
+  
+    {
+        name: 'T-Shirt',
+        price: '599',
+        id: "1"
+    },
+    {
+        name: 'BackPack',
+        price: '1500',
+        id: "2"
+    },
+    {
+        name: 'Pants',
+        price: '1000',
+        id: '3'
+    },
+    {
+        name: 'Trekking Shoes',
+        price: '2000',
+        id: '4'
+    },
+    {
+        name: 'Jacket',
+        price: '1500',
+        id: '5'
+    },
+    {
+        name:'T-Shirt Ladies',
+        price: '650',
+        id: '6'
+    }
+ ]
 
 function ProductList() {
    return (
        <React.Fragment>
-           <Product />
+           <h1>Yolomy Products</h1>
+           <Product
+           name = "Trousers"
+           price = '1500' />
+
+           <Product
+           name = "Polo Shirt"
+           price = "1500"/>
        </React.Fragment>
    )
 }

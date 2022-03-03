@@ -1,15 +1,19 @@
-import React from 'react'
+import React from 'react';
+import PropTypes from 'prop-types'
 
-function Product() {
-   const price = '500'
-   const size = 'large'
+function Product(props) {
    return (
        <React.Fragment>
-           <h1>Yolomoy Products</h1>
-           <p>Trousers - {size}</p>
-           <p>Price - {price} </p>
+           <p> {props.name} </p>
+           <p>Price - {props.price} </p>
        </React.Fragment>
    )
+   
 }
 
-export default Product
+Product.propTypes ={
+    name: PropTypes.string,
+    Price: PropTypes.string
+ }
+
+export default Product;
