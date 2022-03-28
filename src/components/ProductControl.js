@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import AddProduct from './AddProduct';
 import ProductList from './ProductList';
 import NewProductForm from './NewProductForm';
-
+import ProductDetail from './ProductDetail';
 import tshirt from '../images/products/tshirt.png';
 import backpack from '../images/products/backpack.png';
 import pants from '../images/products/pants.png';
@@ -59,14 +59,28 @@ class ProductControl extends Component {
         super(props);
         this.state ={
             productFormVisible: false,
-            actualProductList: actualProductList //new code
+            actualProductList: actualProductList, //new code
+            selectedProduct: null
         }
     }
  
     handleClick = ()=>{
-        this.setState((prevState)=>({
-            productFormVisible: !prevState.productFormVisible
-        }))
+        if(this.state.selectedProduct !=null){
+            this.setState({
+                productFormVisible: false,
+                selectedProduct: null
+            })
+        }else{
+ 
+            this.setState((prevState)=>({
+                productFormVisible: !prevState.productFormVisible
+            }))
+        }
+    }
+
+    handleChangingSelectedProduct = (id) => {
+        const selectedProduct = this.state.actualProductList.filter(product => product.id === id)[0];
+        this.setState({selectedProduct: selectedProduct});
     }
  
     // Method to handle adding a new product
@@ -82,13 +96,16 @@ class ProductControl extends Component {
     };
 
    render() {
-        let currentVisibleState = null;
-        let buttonText = null
-        if (this.state.productFormVisible){
-            currentVisibleState = <NewProductForm  onNewProductCreation= {this.handleAddingNewProduct}/>
-            buttonText = 'Go back to Product List'
-        }else{
-           currentVisibleState = <ProductList productList = {this.state.actualProductList} /> //new code
+         let currentVisibleState = null;
+       let buttonText = null
+       if(this.state.selectedProduct != null){
+           currentVisibleState = <ProductDetail  product ={this.state.selectedProduct} /> //new code
+           buttonText = 'Back to Product List '
+       }else if (this.state.productFormVisible){
+           currentVisibleState = <NewProductForm  onNewProductCreation= {this.handleAddingNewProduct}/>
+           buttonText = 'Go back to Product List'
+       }else{
+           currentVisibleState = <ProductList productList = {this.state.actualProductList} onProductSelection = {this.handleChangingSelectedProduct} /> // Because a user will actually be clicking on the Product in the Product component, we will need to pass our new handleChangingSelectedProduct method as a prop.
            buttonText = 'Add A Product'
        }
        return (
