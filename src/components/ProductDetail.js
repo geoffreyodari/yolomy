@@ -12,7 +12,7 @@ function ProductDetail(props) {
                            <div className="preview col-md-6">
                               
                                <div className="preview-pic tab-content">
-                               <div className="tab-pane active" id="pic-1"><img src={props.product.photo} alt="" /></div>
+                               <div className="tab-pane active" id="pic-1"><img src={(props.product.photo)?props.product.photo:props.defaultImage} alt="" /></div>
                                </div>
                               
                            </div>

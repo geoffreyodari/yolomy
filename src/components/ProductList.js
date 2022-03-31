@@ -28,14 +28,14 @@ function ProductList(props) {
                <div className="row">
                {props.productList.map((product) =>     //Loop through the product list passed down from ProductControl component
                    <  Product 
-                   whenProductIsClicked = {props.onProductSelection} //new code
-                   photo = {product.photo}
-                   name = {product.name}
-                   price = {product.price}
-                   id = {product._id}
-                   key= {product._id}/>
+                        whenProductIsClicked = {props.onProductSelection} //new code
+                        photo = {(product.photo)?product.photo:props.defaultImage}
+                        name = {product.name}
+                        price = {product.price}
+                        id = {product._id}
+                        key= {product._id}/>
 
-               )}
+                    )}
                </div>
 
            </div>

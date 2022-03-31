@@ -27,6 +27,7 @@ class ProductControl extends Component {
             console.log(res)
             this.setState({
                 actualProductList: res.data
+    
             })
         })
     }
@@ -110,7 +111,7 @@ class ProductControl extends Component {
 
     }else if (this.state.selectedProduct != null){
 
-        currentVisibleState = < ProductDetail product = {this.state.selectedProduct} onBuyButtonClick ={this.handleAddButtonClick}  onDeleteProduct = {this.handleDeletingProduct} onEditProductClick = {this.handleEditProductClick}/>
+        currentVisibleState = < ProductDetail product = {this.state.selectedProduct} defaultImage={Default_image} onBuyButtonClick ={this.handleAddButtonClick}  onDeleteProduct = {this.handleDeletingProduct} onEditProductClick = {this.handleEditProductClick}/>
 
         buttonText = "Back to product list"
 
@@ -118,7 +119,7 @@ class ProductControl extends Component {
            currentVisibleState = <NewProductForm  onNewProductCreation= {this.handleAddingNewProduct}/>
            buttonText = 'Go back to Product List'
     }else{
-           currentVisibleState = <ProductList productList = {this.state.actualProductList} onProductSelection = {this.handleChangingSelectedProduct} /> // Because a user will actually be clicking on the Product in the Product component, we will need to pass our new handleChangingSelectedProduct method as a prop.
+           currentVisibleState = <ProductList productList = {this.state.actualProductList} defaultImage={Default_image} onProductSelection = {this.handleChangingSelectedProduct} /> // Because a user will actually be clicking on the Product in the Product component, we will need to pass our new handleChangingSelectedProduct method as a prop.
            buttonText = 'Add A Product'
        }
     return (
